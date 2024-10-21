@@ -190,4 +190,15 @@ app.get('/post/:id', async (req, res) => {
   }
 });
 
+app.delete('/posts', async (req, res) => {
+  try {
+    // This will delete all documents in the Post collection
+    await Post.deleteMany({});
+    res.json({ message: 'All posts have been deleted successfully.' });
+  } catch (error) {
+    console.error('Error deleting posts:', error);
+    res.status(500).json({ error: 'An error occurred while deleting posts.' });
+  }
+});
+
 app.listen(PORT, () => console.log(`Server has started on port ${PORT}`));

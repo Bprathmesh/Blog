@@ -12,41 +12,43 @@ export default function Header() {
   };
 
   return (
-    <header className="flex justify-between items-center p-4 bg-white shadow-sm">
-      <Link to="/" className="text-2xl font-bold text-gray-800">MyBlog</Link>
-      <nav className="space-x-4">
-        {userInfo ? (
-          <>
-            <Link
-              to="/create"
-              className="text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              Create new post
-            </Link>
-            <button
-              onClick={handleLogout}
-              className="text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              Logout ({userInfo.username})
-            </button>
-          </>
-        ) : (
-          <>
-            <Link
-              to="/login"
-              className={`${location.pathname === '/login' ? 'text-blue-600' : 'text-gray-600'} hover:text-gray-900 transition-colors`}
-            >
-              Login
-            </Link>
-            <Link
-              to="/register"
-              className={`${location.pathname === '/register' ? 'text-blue-600' : 'text-gray-600'} hover:text-gray-900 transition-colors`}
-            >
-              Register
-            </Link>
-          </>
-        )}
-      </nav>
+    <header className="bg-primary-700 text-white shadow-lg">
+      <div className="container mx-auto px-4 py-6 flex justify-between items-center">
+        <Link to="/" className="text-3xl font-serif font-bold">MyBlog</Link>
+        <nav className="space-x-4">
+          {userInfo ? (
+            <>
+              <Link
+                to="/create"
+                className="bg-secondary-500 hover:bg-secondary-600 text-white py-2 px-4 rounded transition-colors"
+              >
+                Create Post
+              </Link>
+              <button
+                onClick={handleLogout}
+                className="bg-primary-800 hover:bg-primary-900 text-white py-2 px-4 rounded transition-colors"
+              >
+                Logout ({userInfo.username})
+              </button>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                className={`${location.pathname === '/login' ? 'text-secondary-300' : 'text-white'} hover:text-secondary-200 transition-colors`}
+              >
+                Login
+              </Link>
+              <Link
+                to="/register"
+                className={`${location.pathname === '/register' ? 'text-secondary-300' : 'text-white'} hover:text-secondary-200 transition-colors`}
+              >
+                Register
+              </Link>
+            </>
+          )}
+        </nav>
+      </div>
     </header>
   );
 }
